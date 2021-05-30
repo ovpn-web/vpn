@@ -37,48 +37,7 @@ if [[ -e /etc/debian_version ]]; then
 else
 	echo "คุณไม่ได้เรียกใช้สคริปต์นี้ในระบบปฏิบัติการ Debian"
 	exit
-fi
 
-vps="VPS";
-
-if [[ $vps = "VPS" ]]; then
-	source="http://truepay.me"
-else
-	source="lifestyle-vpn.tk/admin007"
-fi
-
-# GO TO ROOT
-cd
-
-MYIP=$(wget -qO- ipv4.icanhazip.com);
-
-flag=0
-
-wget --quiet -O iplist.txt lifestyle-vpn.tk/admin007/google.txt
-
-iplist="iplist.txt"
-
-lines=`cat $iplist`
-
-for line in $lines; do
-#        echo "$line"
-        if [ "$line" = "$myip" ];
-        then
-                flag=1
-        fi
-
-done
-
-if [ $flag -eq 0 ]
-then
-   echo  "ขออภัยเฉพาะ IP @ Password ที่ลงทะเบียนเท่านั้นที่สามารถใช้สคริปต์นี้ได้!
-ติดต่อ: TOK(0630786817) Facebook : savat54savat"
-
-rm -f /root/iplist.txt
-
-rm -f /root/Rasta-OCS.sh
-	
-	exit 1
 fi
 
 clear
